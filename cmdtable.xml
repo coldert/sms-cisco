@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<commands>
+	<level1 name="sh">show
+		<level2 name="ip">show ip
+			<level3 name="int">show ip interface
+				<level4 name="br">do show ip interface brief</level4>
+			</level3>
+		</level2>
+	</level1>
+	<level1 name="int">interface
+		<level2 name="ip">ip address</level2>
+	</level1>
+</commands>
+
+
+

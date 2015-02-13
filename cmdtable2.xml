@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<commands>
+	<sh>show
+		<ip>show ip
+			<int>show ip interface
+				<br>do show ip interface brief</br>
+			</int>
+		</ip>
+	</sh>
+	<int>interface
+		<ip>interface #INTERFACE; ip address #IPADDRESS #MASK</ip>
+	</int>
+</commands>
+
+
+
