@@ -6,10 +6,17 @@
 				<br>do show ip interface brief</br>
 			</int>
 		</ip>
+		<route>do show ip route</route>
 	</sh>
 	<int>interface
 		<ip>interface #INTERFACE; ip address #IPADDRESS #MASK</ip>
+		<up>interface #INTERFACE; no shutdown</up>
+		<down>interface #INTERFACE; shutdown</down>
 	</int>
+	<route>
+		<static>ip route #IPADDRESS #MASK #INTERFACE</static>
+		<default>ip route 0.0.0.0 0.0.0.0 #INTERFACE</default>
+	</route>
 </commands>
 
 
