@@ -10,6 +10,7 @@ import xml.etree.ElementTree as ET
 import re
 import sys
 
+#Define patterns for IP ADDRESS, INTERFACE ...
 re_ipaddress = re.compile("^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/?(\d{1,2})?$")
 re_interface = re.compile("^([a-z-]+\d{1,2}/\d{1,2})$")
 
