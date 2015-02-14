@@ -18,6 +18,3 @@
 		<default>ip route 0.0.0.0 0.0.0.0 #INTERFACE</default>
 	</route>
 </commands>
-
-
-

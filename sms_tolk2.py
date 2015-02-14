@@ -1,8 +1,7 @@
 #!/usr/bin/python
 # Python 2.7.3 script that matches a string against XML document.
 
-#TODO: Classify
-#TODO: Command object?
+#TODO: Classify. Make a command object.
 
 import xml.etree.ElementTree as ET
 import re
