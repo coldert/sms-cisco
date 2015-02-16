@@ -9,12 +9,12 @@
 		<route>do show ip route</route>
 	</sh>
 	<int>interface
-		<ip>interface #INTERFACE; ip address #IPADDRESS #MASK</ip>
+		<ip>interface #INTERFACE; ip address #IPADDRESS</ip>
 		<up>interface #INTERFACE; no shutdown</up>
 		<down>interface #INTERFACE; shutdown</down>
 	</int>
 	<route>
-		<static>ip route #IPADDRESS #MASK #INTERFACE</static>
-		<default>ip route 0.0.0.0 0.0.0.0 #INTERFACE</default>
+		<static>ip route #IPADDRESS #INTERFACE #IPADDRESS #AD</static>
+		<default>ip route 0.0.0.0 0.0.0.0 #INTERFACE #IPADDRESS</default>
 	</route>
 </commands>
