@@ -9,7 +9,7 @@ import sys
 tree = ET.parse('cmdtable2.xml')
 root = tree.getroot()
 
-# Define patterns for IP address, interface placeholder ...
+# Define patterns for IP address, interface, AD, placeholder ...
 re_ipaddress = re.compile("^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/?(\d{1,2})?$")
 re_interface = re.compile("^([a-z-]+\d{1,2}(/\d{1,2})*?)$")
 re_ad = re.compile("^ad(\d*)$")
@@ -71,6 +71,6 @@ def cidr_to_dotted(mask):
 # TEST COMMANDS
 #cmd_string = "int s0/1/2 ip 192.168.1.1/29"
 #cmd_string = "int f0/12 down"
-cmd_string = "route static 209.128.3.0/24 s0/1/0 209.128.3.3 ad150"
+#cmd_string = "route static 209.128.3.0/24 s0/1/0 209.128.3.3 ad150"
 #cmd_string = "route default s0/1/0 192.168.24.254"
-print command_handler(cmd_string)
+#print command_handler(cmd_string)
