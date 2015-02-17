@@ -1,7 +1,7 @@
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 from urlparse import urlparse
 from urllib import unquote
-import sms_tolk2 as SMS
+import sms_tolk as SMS
 
 PORT_NUMBER = 8080
 
