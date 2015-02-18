@@ -19,12 +19,12 @@ re_placeholder = re.compile(r"#.*\b")
 # This function is called by the request handler when an sms is received
 def parse(cmd_string):
 	# Make string lowercase and split into command parts
-	cmd_list = cmd_string.lower().split()
+	cmd_list = cmd_string.strip().lower().split()
 
 	# Build a search string for etree iterfind function
 	xpath_str = ""
 	# Lists to hold IP address, interface identifier and other user defined values
-	str_ip = []
+	str_ipaddress = []
 	str_interface = []
 	str_ad = []
 
@@ -39,7 +39,7 @@ def parse(cmd_string):
 		if match_ip:
 			# Check if the ip address should have a subnet mask
 			str_mask = " " + cidr_to_dotted(int(match_ip.group(2))) if (match_ip.group(2)) else "";
-			str_ip.append(match_ip.group(1) + str_mask)
+			str_ipaddress.append(match_ip.group(1) + str_mask)
 		elif match_int:
 			str_interface.append(match_int.group(1))
 		elif match_ad:
@@ -54,7 +54,7 @@ def parse(cmd_string):
 	# Find XML nodes that match the search string and replace the placeholders with their correct value
 	command = root.findtext(xpath_str)
 	# Loop through all ip-addresses and interfaces and put the in the right place in the command
-	for i in str_ip:
+	for i in str_ipaddress:
 		command = command.replace("#IPADDRESS", i, 1)
 	for i in str_interface:
 		command = command.replace("#INTERFACE", i, 1)
