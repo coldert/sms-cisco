@@ -52,21 +52,16 @@ def parse(cmd_string):
 	xpath_str = xpath_str[:-1]
 
 	# Find XML nodes that match the search string and replace the placeholders with their correct value
-	command = ""
-	try:
-		for cmd in root.iterfind(xpath_str):
-			command = cmd.text
-			# Loop through all ip-addresses and interfaces and put the in the right place in the command
-			for i in str_ip:
-				command = command.replace("#IPADDRESS", i, 1)
-			for i in str_interface:
-				command = command.replace("#INTERFACE", i, 1)
-			for i in str_ad:
-				command = command.replace("#AD", i, 1)	
-			# Remove all unused placeholders
-			command = re_placeholder.sub("", command)
-	except StopIteration:
-		pass
+	command = root.findtext(xpath_str)
+	# Loop through all ip-addresses and interfaces and put the in the right place in the command
+	for i in str_ip:
+		command = command.replace("#IPADDRESS", i, 1)
+	for i in str_interface:
+		command = command.replace("#INTERFACE", i, 1)
+	for i in str_ad:
+		command = command.replace("#AD", i, 1)	
+	# Remove all unused placeholders
+	command = re_placeholder.sub("", str(command))
 	return command
 
 # Function to convert /24 to 255.255.255.0
