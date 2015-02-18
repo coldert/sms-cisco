@@ -17,4 +17,7 @@
 		<static>ip route #IPADDRESS #INTERFACE #IPADDRESS #AD</static>
 		<default>ip route 0.0.0.0 0.0.0.0 #INTERFACE #IPADDRESS</default>
 	</route>
+	<ping>do ping #IPADDRESS
+		<src>do ping #IPADDRESS source #INTERFACE</src>
+	</ping>
 </commands>
